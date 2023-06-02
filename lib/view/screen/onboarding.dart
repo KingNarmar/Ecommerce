@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widget/Onbording/custombutton.dart';
 import '../widget/Onbording/customslider.dart';
 import '../widget/Onbording/dotscontroller.dart';
