@@ -1,7 +1,8 @@
-import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/static/static.dart';
+import '../widget/Onbording/custombutton.dart';
+import '../widget/Onbording/customslider.dart';
+import '../widget/Onbording/dotscontroller.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
@@ -10,33 +11,27 @@ class OnBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: PageView.builder(
-        itemCount: onBoardingList.length,
-        itemBuilder: (context, index) => Column(
+        child: Column(
           children: [
-            Text(
-              onBoardingList[index].title!,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            const Expanded(
+              flex: 3,
+              child: CustomSlider(),
             ),
-            const SizedBox(
-              height: 80,
-            ),
-            Image.asset(onBoardingList[index].image!,width: 200,height: 250,fit:BoxFit.fill ,),
-            const SizedBox(
-              height: 80,
-            ),
-            Container(
-              width: double.infinity,
-              alignment: Alignment.center,
-              child: Text(
-                onBoardingList[index].body!,
-                style:  TextStyle(color: AppColor.grey, height: 2, fontSize: 15),
-                textAlign: TextAlign.center,
+            Expanded(
+              flex: 1,
+              child: Column(
+                children: const [
+                  CustomDotsControllerOnBoarding(),
+                  Spacer(
+                    flex: 2,
+                  ),
+                  CustomButtonOnBoarding()
+                ],
               ),
-            ),
+            )
           ],
         ),
-      )),
+      ),
     );
   }
 }
